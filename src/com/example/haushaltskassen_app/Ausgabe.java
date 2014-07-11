@@ -1,5 +1,7 @@
 package com.example.haushaltskassen_app;
 
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -10,6 +12,9 @@ import android.util.Log;
 
 public class Ausgabe {
 	Calendar calendar =new GregorianCalendar(TimeZone.getDefault()); 
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+	
+	
 	
 		private int id;
 		private int person;
@@ -26,7 +31,7 @@ public class Ausgabe {
 	        this.person = person;
 	        this.godera = godera;
 	        this.betrag = betrag;
-	       this.date =""+Integer.toString(calendar.get(Calendar.DAY_OF_MONTH))+"."+Integer.toString(calendar.get(Calendar.MONTH))+"."+Integer.toString(calendar.get(Calendar.YEAR));
+	       this.date =dateFormat.format(calendar.getTime());
 	        
 	       
 	    }
