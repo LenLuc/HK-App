@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+      android:id="@+id/scrollView1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".DisplayContact" >
+
+<RelativeLayout
+   android:layout_width="match_parent"
+   android:layout_height="370dp"
+   android:paddingBottom="@dimen/activity_vertical_margin"
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   >
+
+
+     <TextView
+         android:id="@+id/einkommen1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="14dp"
+         android:text="@string/einkommen_lucia"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <TextView
+         android:id="@+id/einkommen2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/einkommen1"
+         android:layout_below="@+id/einkommen1"
+         android:layout_marginTop="100dp"
+         android:text="@string/einkommen_piet"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+
+     
+
+
+          <EditText
+              android:id="@+id/editEinkommenPiet"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignLeft="@+id/einkommen2"
+              android:layout_below="@+id/einkommen2"
+              android:layout_marginTop="24dp"
+              android:ems="10"
+              android:inputType="numberDecimal" >
+                   
+     </EditText>
+
+          <EditText
+              android:id="@+id/editEinkommenLucia"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignLeft="@+id/einkommen1"
+              android:layout_below="@+id/einkommen1"
+              android:layout_marginTop="27dp"
+              android:ems="10"
+              android:inputType="numberDecimal" >
+                   
+     </EditText>
+     
+
+          
+                    <Button
+         android:id="@+id/speichern"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="30dp"
+         android:onClick="run"
+         android:text="@string/fertig" />
+
+</RelativeLayout>
+
+   </ScrollView>

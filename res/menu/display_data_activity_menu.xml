@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+
+         
+         
+     <item
+        android:id="@+id/einstellungen"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/einstellungen"
+        />
+     
+        <item
+        android:id="@+id/daten_hochladen"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/server"
+        />
+     
+   <item
+        android:id="@+id/delete_table"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/delete_table"
+        />
+ 
+        <item
+        android:id="@+id/goto_neueAusgabe"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/goto_neueAusgabe"
+        />
+        <item
+        android:id="@+id/bestimme_abrechnung"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/bestimme_abrechnung"
+        />
+</menu>

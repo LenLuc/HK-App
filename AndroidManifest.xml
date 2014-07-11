@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.haushaltskassen_app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+<uses-permission  android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.INTERNET" />
+
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.haushaltskassen_app.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    
+     <activity
+        	android:name="com.example.haushaltskassen_app.DisplayDataActivity"
+        	android:label="@string/title_activity_display_data"
+        	android:parentActivityName="com.example.haushaltskassen_app.MainActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.haushaltskassen_app.MainActivity" />
+   		</activity>
+   		   
+     <activity
+        	android:name="com.example.haushaltskassen_app.HKPreferences"
+        	android:label="@string/einstellungen"
+        	android:parentActivityName="com.example.haushaltskassen_app.MainActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.haushaltskassen_app.MainActivity" />
+   		</activity>
+   		
+       <activity
+        	android:name="com.example.haushaltskassen_app.ConnectToServer"
+        	android:label="@string/server"
+        	android:parentActivityName="com.example.haushaltskassen_app.MainActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.haushaltskassen_app.MainActivity" />
+   		</activity>
+</application>
+</manifest>
