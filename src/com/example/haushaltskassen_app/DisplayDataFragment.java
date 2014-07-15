@@ -23,6 +23,8 @@ import android.widget.AdapterView.OnItemClickListener;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 @SuppressLint("NewApi")
 public class DisplayDataFragment extends ListFragment{
+	
+	public final static String EXTRA_DATE = "com.example.android-SQLite.DATE";
 	ArrayAdapter<Ausgabe> adapter;
 
 	
@@ -65,9 +67,10 @@ public class DisplayDataFragment extends ListFragment{
  	        		{
  	        			//Call intent to open MainActivity
  	        		
- 	        			final Intent intent = new Intent(getActivity(), MainActivity.class);
+ 	        			final Intent intent = new Intent(getActivity(), BearbeitenActivity.class);
  	        			//put information of ausgabe in the intent
  	        			intent.putExtra(MainActivity.EXTRA_BETRAG, ausgabe.getBetrag());
+ 	        			intent.putExtra(EXTRA_DATE, ausgabe.getDate());
  	        			if(ausgabe.getPerson()==1){
  	        				intent.putExtra(MainActivity.EXTRA_PIET, true);
  	        				intent.putExtra(MainActivity.EXTRA_LUCIA, false);

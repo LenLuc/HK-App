@@ -22,5 +22,6 @@
     <string name="title_activity_edit_data">Bearbeiten</string>
     <string name="einkommen_lucia">Einkommen Lucia</string>
     <string name="einkommen_piet">Einkommen Piet</string>
-
+	  <string name="bearbeiten">Bearbeiten</string>
+	  <string name="datum">TT-MM-JJJJ</string>
 </resources>

@@ -1,25 +1,18 @@
 package com.example.haushaltskassen_app;
 
-import java.util.List;
+
 
 import android.os.Bundle;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.view.Menu;
 
-
-import android.util.Log;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
+
 import android.app.AlertDialog;
-import android.content.Context;
+
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+
  
 public class MainActivity extends MyBaseActivity {
 	public final static String EXTRA_BETRAG = "com.example.android-SQLite.BETRAG";
@@ -27,6 +20,7 @@ public class MainActivity extends MyBaseActivity {
 	public final static String EXTRA_LUCIA = "com.example.android-SQLite.LUCIA";
 	public final static String EXTRA_GEMEINSAM = "com.example.android-SQLite.GEMEINSAM";
 	public final static String EXTRA_AUSGELEGT = "com.example.android-SQLite.AUSGELEGT";
+	
   
 	
 
@@ -56,30 +50,11 @@ public class MainActivity extends MyBaseActivity {
     	 
         }
         
-      /*  MySQLiteHelper db = new MySQLiteHelper(this);*/
- 
-        /**
-         * CRUD Operations
-         * */
-        // add Ausgaben
-     /*   db.addAusgabe(new Ausgabe(1,true, "10.50"));  
-      * 
-        db.addAusgabe(new Ausgabe(2,false,"0.20"));      
-        db.addAusgabe(new Ausgabe(1,false,"5.20"));
- 
-        // get all ausgaben
-        List<Ausgabe> list = db.getAllAusgaben();
- 
-        // delete one ausgabe
-        db.deleteAusgabe(list.get(0));
- 
-        // get all ausgabe
-        db.getAllAusgaben();*/
- 
+     
     }
     /** Called when the user clicks the Fertig button */
     public void saveData(View view){
-    		final Intent intent = new Intent(this, DisplayDataActivity.class);
+    		//get data from user entry
     	    EditText editText = (EditText) findViewById(R.id.editBetragAusgabe);
     	    CheckBox checkboxPiet = (CheckBox) findViewById(R.id.checkBoxPiet);
     	    CheckBox checkboxLucia = (CheckBox) findViewById(R.id.checkBoxLucia);
@@ -91,31 +66,58 @@ public class MainActivity extends MyBaseActivity {
     	    boolean lucia = checkboxLucia.isChecked();
     	    boolean gemeinsam = checkboxGemeinsam.isChecked();
     	    boolean ausgelegt = checkboxAusgelegt.isChecked();
-    	   
+    	    
+
     	    //Check if entries make sense
             if ((betrag.length() == 0) || (piet & lucia) || ((piet== false) & (lucia==false))|| (gemeinsam & ausgelegt) || ((gemeinsam==false) & (ausgelegt==false)))
-        	{  //Do nothing
+        	{  //Show error
             	AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
-    			adb.setTitle("Unvollständige Eingabe");
-    			//adb.setMessage("Direkt zur Ausgabentabelle?");
-    			adb.setNegativeButton("OK",null);
-    			/*adb.setPositiveButton("Ja", new DialogInterface.OnClickListener()
-		    	{
-		        	@Override
+    			adb.setTitle("Unvollständige Eingabe. Zur Ausgabetabelle?");
+    			adb.setNegativeButton("Nein",null);
+    			adb.setPositiveButton("Ja", new  DialogInterface.OnClickListener(){
+    				//go to Ausgabetabelle
+    				@Override
 		        	public void onClick(DialogInterface dialog, int whichButton)
 		        		{
-		        		startActivity(intent);
+    				final Intent intent = new Intent(MainActivity.this, DisplayDataActivity.class);
+    				startActivity(intent);
 		        		}
-		    	});*/
+    			});
     			adb.show();
         	}
             else{
-    	    intent.putExtra(EXTRA_BETRAG, betrag);
-    	    intent.putExtra(EXTRA_PIET, piet);
-    	    intent.putExtra(EXTRA_LUCIA, lucia);
-    	    intent.putExtra(EXTRA_GEMEINSAM, gemeinsam);
-    	    intent.putExtra(EXTRA_AUSGELEGT, ausgelegt);
-    	    startActivity(intent);}
+            		//save user entry
+            		MySQLiteHelper dbtemp = new MySQLiteHelper(this);
+            		int person;
+            		int godera;
+            		if(piet){ person = 1;} else{person=2;}
+            		if(gemeinsam){ godera =1;}else{godera=2;}
+            		Ausgabe ausgabe =new Ausgabe(person,godera,betrag);
+            		dbtemp.addAusgabe(ausgabe);
+            		//ask what now
+                	AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+        			adb.setTitle("Weiter zur Ausgabentabelle?");
+        			adb.setNegativeButton("Nein",new DialogInterface.OnClickListener() {
+						//Clear MainActivity to enter new ausgabe
+						@Override
+						public void onClick(DialogInterface dialog, int whichButtom) {
+							
+	        				final Intent intent = new Intent(MainActivity.this, MainActivity.class);
+	        				startActivity(intent);
+						}
+					});
+        			adb.setPositiveButton("Ja", new  DialogInterface.OnClickListener(){
+        				//go to Ausgabetabelle
+        				@Override
+    		        	public void onClick(DialogInterface dialog, int whichButton)
+    		        		{
+        				final Intent intent = new Intent(MainActivity.this, DisplayDataActivity.class);
+        				startActivity(intent);
+    		        		}
+        			}
+            		);
+            		adb.show();
+            	}
     	}
    
 }

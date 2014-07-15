@@ -64,11 +64,11 @@ public class MyBaseActivity extends FragmentActivity{
 	        	adb.show();
 	        return true;
 	            
-	            case R.id.goto_table:
+	           /* case R.id.goto_table:
 	        	Log.d("intent","goto datadisplay");
 	        	 Intent intent = new Intent(this, DisplayDataActivity.class);
 	             startActivity(intent);
-	             return true;
+	             return true;*/
 	             
 	            
 	              case R.id.bestimme_abrechnung:
