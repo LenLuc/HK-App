@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MyBaseActivity extends Activity{
+public class MyBaseActivity extends FragmentActivity{
 	 public boolean onCreateOptionsMenu(Menu menu) {
 	    	// Inflate the menu items for use in the action bar
 	    	

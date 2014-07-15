@@ -30,7 +30,7 @@ import android.view.View;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 @SuppressLint("NewApi")
-public class DisplayDataActivity extends FragmentActivity {
+public class DisplayDataActivity extends MyBaseActivity {
 
  
   @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -85,7 +85,7 @@ public class DisplayDataActivity extends FragmentActivity {
      
 
   }
-  public boolean onCreateOptionsMenu(Menu menu) {
+ /* public boolean onCreateOptionsMenu(Menu menu) {
   	// Inflate the menu items for use in the action bar
       MenuInflater inflater = getMenuInflater();
       inflater.inflate(R.menu.display_data_activity_menu, menu);
@@ -230,7 +230,7 @@ return true;
       
       // Stop method tracing that the activity started during onCreate()
       android.os.Debug.stopMethodTracing();
-  }
+  }*/
 }
 
 
