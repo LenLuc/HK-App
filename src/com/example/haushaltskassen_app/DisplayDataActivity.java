@@ -5,6 +5,8 @@ import java.util.List;
 //import com.example.myfirstapp.R;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -13,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,15 +28,26 @@ import android.widget.Toast;
 import android.view.View;
 
 
-public class DisplayDataActivity extends ListActivity {
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+@SuppressLint("NewApi")
+public class DisplayDataActivity extends FragmentActivity {
 
-  @SuppressLint("NewApi")
-  @Override
+ 
+  @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+@SuppressLint("NewApi")
+@Override
   protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
+      Log.d("contentview","contentview1");
+      setContentView(R.layout.activity_display_data);
+      Log.d("contentview","contentview2");
      int name=0; /* piet=1 lucia=2*/
      int godera=0; /*gemeinsam= 1, ausgelegt = 2*/
     
+    // if (getFragmentManager().findFragmentById(android.R.id.content) == null) {
+     
+
+    // }
       //Get Intent
       Intent intent = getIntent();
       if(intent.getExtras()!=null){
@@ -61,71 +75,7 @@ public class DisplayDataActivity extends ListActivity {
       		}
       }
       
-      		MySQLiteHelper db = new MySQLiteHelper(this);
-      		
-      		List<Ausgabe> ausgaben = db.getAllAusgaben();
-      		
-      		final ArrayAdapter<Ausgabe> adapter = new ArrayAdapter<Ausgabe>(this,
-      	            android.R.layout.simple_list_item_1, ausgaben);
-      	    setListAdapter(adapter);
-      	    final ListView listView = getListView();
-      	    listView.setAdapter(adapter);	
-      
-      	    listView.setOnItemClickListener(new OnItemClickListener()
-      	    {
-      		public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
-      			AlertDialog.Builder adb = new AlertDialog.Builder(DisplayDataActivity.this);
-      			adb.setTitle("Ausgabe");
-      			adb.setMessage("Ausgewählte Ausgabe:"+listView.getItemAtPosition(position));
-      			final Ausgabe ausgabe = (Ausgabe) listView.getItemAtPosition(position);
-      			 adb.setNeutralButton("Abbrechen",null);
-      		    adb.setPositiveButton("Löschen", new DialogInterface.OnClickListener()
-      		    	{
-      		        	@Override
-      		        	public void onClick(DialogInterface dialog, int whichButton)
-      		        		{
-      		        		MySQLiteHelper db = new MySQLiteHelper(DisplayDataActivity.this);
-      		        		db.deleteAusgabe(ausgabe);
-      		        		adapter.remove(ausgabe);
-      		        		adapter.notifyDataSetChanged();
-      		        		}
-      		    	});
-      		    adb.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener()
-  		    	{
-  		        	@Override
-  		        	public void onClick(DialogInterface dialog, int whichButton)
-  		        		{//Call intent to open MainActivity
-  		        			final Intent intent = new Intent(DisplayDataActivity.this, MainActivity.class);
-  		        			//put information of ausgabe in the intent
-  		        			intent.putExtra(MainActivity.EXTRA_BETRAG, ausgabe.getBetrag());
-  		        			if(ausgabe.getPerson()==1){
-  		        				intent.putExtra(MainActivity.EXTRA_PIET, true);
-  		        				intent.putExtra(MainActivity.EXTRA_LUCIA, false);
-  		        				}
-  		        			if(ausgabe.getPerson()==2){
-  		        				intent.putExtra(MainActivity.EXTRA_LUCIA, true);
-  		        				intent.putExtra(MainActivity.EXTRA_PIET, false);
-  		        				}
-  		        			if(ausgabe.getGodera()==1){
-  		        				intent.putExtra(MainActivity.EXTRA_GEMEINSAM, true);
-  		        				intent.putExtra(MainActivity.EXTRA_AUSGELEGT,false);
-  		        				}
-  		        			if(ausgabe.getGodera()==2){
-  		        				intent.putExtra(MainActivity.EXTRA_AUSGELEGT, true);
-  		        				intent.putExtra(MainActivity.EXTRA_GEMEINSAM,false);
-  		        				}
-  		        			//Delete ausgabe that will be modivied
-      		        		MySQLiteHelper db = new MySQLiteHelper(DisplayDataActivity.this);
-      		        		
-      		        		db.deleteAusgabe(ausgabe);
-  		        			startActivity(intent);
-  		         	   	}
-  		    	});
-      			adb.show();         
-      				}
-      	    });
-
-      
+    
       
       // Make sure we're running on Honeycomb or higher to use ActionBar APIs
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {

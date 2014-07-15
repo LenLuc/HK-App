@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class HKPreferences extends Activity {
+public class HKPreferences extends MyBaseActivity {
 
    TextView einkommenLucia;
    TextView einkommenPiet;

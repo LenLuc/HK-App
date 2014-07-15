@@ -24,35 +24,37 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int bestimme_abrechnung=0x7f080014;
-        public static final int button1=0x7f080006;
-        public static final int buttonFertig=0x7f080005;
-        public static final int buttonOk=0x7f080008;
-        public static final int checkBoxAusgelegt=0x7f080003;
-        public static final int checkBoxGemeinsam=0x7f080001;
-        public static final int checkBoxLucia=0x7f080004;
-        public static final int checkBoxPiet=0x7f080000;
-        public static final int daten_hochladen=0x7f080011;
-        public static final int delete_table=0x7f080012;
-        public static final int editBetragAusgabe=0x7f080002;
-        public static final int editEinkommenLucia=0x7f08000e;
-        public static final int editEinkommenPiet=0x7f08000d;
-        public static final int einkommen1=0x7f08000b;
-        public static final int einkommen2=0x7f08000c;
-        public static final int einstellungen=0x7f080010;
-        public static final int goto_neueAusgabe=0x7f080013;
-        public static final int goto_table=0x7f080015;
-        public static final int scrollView1=0x7f08000a;
-        public static final int speichern=0x7f08000f;
-        public static final int textView1=0x7f080009;
-        public static final int textView2=0x7f080007;
+        public static final int bestimme_abrechnung=0x7f080015;
+        public static final int button1=0x7f080007;
+        public static final int buttonFertig=0x7f080006;
+        public static final int buttonOk=0x7f080009;
+        public static final int checkBoxAusgelegt=0x7f080004;
+        public static final int checkBoxGemeinsam=0x7f080002;
+        public static final int checkBoxLucia=0x7f080005;
+        public static final int checkBoxPiet=0x7f080001;
+        public static final int daten_hochladen=0x7f080012;
+        public static final int delete_table=0x7f080013;
+        public static final int editBetragAusgabe=0x7f080003;
+        public static final int editEinkommenLucia=0x7f08000f;
+        public static final int editEinkommenPiet=0x7f08000e;
+        public static final int einkommen1=0x7f08000c;
+        public static final int einkommen2=0x7f08000d;
+        public static final int einstellungen=0x7f080011;
+        public static final int goto_neueAusgabe=0x7f080014;
+        public static final int goto_table=0x7f080016;
+        public static final int list_fragment=0x7f080000;
+        public static final int scrollView1=0x7f08000b;
+        public static final int speichern=0x7f080010;
+        public static final int textView1=0x7f08000a;
+        public static final int textView2=0x7f080008;
     }
     public static final class layout {
         public static final int activity_display_data=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int connect_to_server=0x7f030002;
-        public static final int fragmented_preferences=0x7f030003;
-        public static final int preferences=0x7f030004;
+        public static final int activity_test=0x7f030002;
+        public static final int connect_to_server=0x7f030003;
+        public static final int fragmented_preferences=0x7f030004;
+        public static final int preferences=0x7f030005;
     }
     public static final class menu {
         public static final int display_data_activity_menu=0x7f070000;

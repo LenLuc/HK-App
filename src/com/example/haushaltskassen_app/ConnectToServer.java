@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 
 @SuppressLint("NewApi")
-public class ConnectToServer extends Activity {
+public class ConnectToServer extends MyBaseActivity {
 	 	
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 	@Override
