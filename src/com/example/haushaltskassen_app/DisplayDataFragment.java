@@ -69,7 +69,8 @@ public class DisplayDataFragment extends ListFragment{
  	        		
  	        			final Intent intent = new Intent(getActivity(), BearbeitenActivity.class);
  	        			//put information of ausgabe in the intent
- 	        			intent.putExtra(MainActivity.EXTRA_BETRAG, ausgabe.getBetrag());
+ 	        			handelAusgabeForViews.setAusgabeInIntent(intent,ausgabe);
+ 	        			/*intent.putExtra(MainActivity.EXTRA_BETRAG, ausgabe.getBetrag());
  	        			intent.putExtra(EXTRA_DATE, ausgabe.getDate());
  	        			if(ausgabe.getPerson()==1){
  	        				intent.putExtra(MainActivity.EXTRA_PIET, true);
@@ -90,7 +91,7 @@ public class DisplayDataFragment extends ListFragment{
  	        			//Delete ausgabe that will be modivied
  		        		MySQLiteHelper db = new MySQLiteHelper(getActivity());
  		        		
- 		        		db.deleteAusgabe(ausgabe);
+ 		        		db.deleteAusgabe(ausgabe);*/
  	        			startActivity(intent);
  	         	   	}
  	    	});

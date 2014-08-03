@@ -52,6 +52,8 @@ public class MainActivity extends MyBaseActivity {
         
      
     }
+    
+    
     /** Called when the user clicks the Fertig button */
     public void saveData(View view){
     		//get data from user entry
