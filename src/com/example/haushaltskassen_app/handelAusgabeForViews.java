@@ -2,6 +2,9 @@ package com.example.haushaltskassen_app;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 public class handelAusgabeForViews {
 
@@ -27,8 +30,12 @@ public static Intent setAusgabeInIntent(Intent intent, Ausgabe ausgabe) {
 		
 return intent;}
 
+
+
 public static boolean isPersonPiet(Ausgabe ausgabe){ if(ausgabe.getPerson()==1){return true;}else{return false;}}
 public static boolean isPersonLucia(Ausgabe ausgabe){return (ausgabe.getPerson()==2);}
 public static boolean isGemeinsam(Ausgabe ausgabe){return (ausgabe.getGodera()==1);}
 public static boolean isAusgelegt(Ausgabe ausgabe){return (ausgabe.getGodera()==2);}
+
 }
+

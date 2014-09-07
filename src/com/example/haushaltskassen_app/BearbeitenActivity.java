@@ -27,26 +27,43 @@ public class BearbeitenActivity extends Activity{
         if(intent.getExtras()!=null){
         	/*get Ausgabe*/
         	Ausgabe ausgabe = handelAusgabeForViews.getAusgabeFromIntent(intent);
+        	
+        	
         	/*get textfields and checkboxes*/
             EditText editText = (EditText) findViewById(R.id.editBetragAusgabeBearbeiten);
             EditText editDate = (EditText) findViewById(R.id.editDate);
-    	    CheckBox checkboxPiet = (CheckBox) findViewById(R.id.checkBoxPietBearbeiten);
-    	    CheckBox checkboxLucia = (CheckBox) findViewById(R.id.checkBoxLuciaBearbeiten);
-    	    CheckBox checkboxGemeinsam = (CheckBox) findViewById(R.id.checkBoxGemeinsamBearbeiten);
-    	    CheckBox checkboxAusgelegt = (CheckBox) findViewById(R.id.checkBoxAusgelegtBearbeiten);
-    	    /*set values*/
-    	    editText.setText(ausgabe.getBetrag());
-    	    editDate.setText(ausgabe.getDate());
-    	
-    	    checkboxPiet.setChecked(handelAusgabeForViews.isPersonPiet(ausgabe));
-    	    checkboxLucia.setChecked(handelAusgabeForViews.isPersonLucia(ausgabe));
-    	    checkboxGemeinsam.setChecked(handelAusgabeForViews.isGemeinsam(ausgabe));
-    	    checkboxAusgelegt.setChecked(handelAusgabeForViews.isAusgelegt(ausgabe));
+            CheckBox checkboxPiet = (CheckBox) findViewById(R.id.checkBoxPietBearbeiten);
+            CheckBox checkboxLucia = (CheckBox) findViewById(R.id.checkBoxLuciaBearbeiten);
+            CheckBox checkboxGemeinsam = (CheckBox) findViewById(R.id.checkBoxGemeinsamBearbeiten);
+            CheckBox checkboxAusgelegt = (CheckBox) findViewById(R.id.checkBoxAusgelegtBearbeiten);
+            
+            /*set values*/
+            editText.setText(ausgabe.getBetrag());
+            editDate.setText(ausgabe.getDate());
+
+            checkboxPiet.setChecked(handelAusgabeForViews.isPersonPiet(ausgabe));
+            checkboxLucia.setChecked(handelAusgabeForViews.isPersonLucia(ausgabe));
+            checkboxGemeinsam.setChecked(handelAusgabeForViews.isGemeinsam(ausgabe));
+            checkboxAusgelegt.setChecked(handelAusgabeForViews.isAusgelegt(ausgabe));
     	 
         }
         
      
     }
+    /**Called when the user clicks the Abbrechen button**/
+    public void abbrechenBearbeiten(View view){
+     	AlertDialog.Builder adbAbbrechen = new AlertDialog.Builder(BearbeitenActivity.this);
+			adbAbbrechen.setTitle("Ausgabe bearbeiten Abbrechen?");
+			adbAbbrechen.setNegativeButton("Nein",null);
+			adbAbbrechen.setPositiveButton("Ja",new DialogInterface.OnClickListener(){
+				@Override
+ 	        	public void onClick(DialogInterface dialog, int whichButton)
+ 	        		{final Intent intentAbbrechen = new Intent(BearbeitenActivity.this, DisplayDataActivity.class);
+ 	        		startActivity(intentAbbrechen);}
+			});
+			adbAbbrechen.show();
+    }
+    
     /** Called when the user clicks the Fertig button */
     public void saveData(View view){
     	//Log.d("saveData",ausgabe.toString());

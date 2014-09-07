@@ -57,7 +57,7 @@
           <activity
         	android:name="com.example.haushaltskassen_app.BearbeitenActivity"
         	android:label="@string/bearbeiten"
-        	android:parentActivityName="com.example.haushaltskassen_app.MainActivity" >
+        	 >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.haushaltskassen_app.MainActivity" />
