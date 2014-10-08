@@ -65,7 +65,8 @@ public class ConnectToServer extends MyBaseActivity {
 	Log.d("network","network"+network);
 	if(network){
 		
-	String url = new String( "http://fathomless-fjord-2416.herokuapp.com/expenses.json");
+	String url = new String( " http://fathomless-fjord-2416.herokuapp.com/api/expenses");
+	
 	 downloadTable(url);
 	 }
 		else {
@@ -82,15 +83,18 @@ public class ConnectToServer extends MyBaseActivity {
 	
 	 public static void downloadTable(String url)
 	 {
-
+		 Log.d("downlo","bla");
 	     HttpClient httpclient = new DefaultHttpClient();
-
+	     Log.d("httpclient","bla");
 	     // Prepare a request object
 	     HttpGet httpget = new HttpGet(url); 
-	     httpget.setHeader("Authorization","Token token=\"b3f0c4fc17a759b04016f1ce546059d9\"");
+	     Log.d("httpget","bla");
+	     //httpget.setHeader("Authorization","Token token=\"b3f0c4fc17a759b04016f1ce546059d9\"");
+	   //  Log.d("setheader","bla");
 	     // Execute the request
 	     HttpResponse response;
 	     try {
+	    	 Log.d("try response","n");
 	         response = httpclient.execute(httpget);
 	         // Examine the response status
 	         Log.d("Praeda","response"+response.getStatusLine().toString());
