@@ -53,7 +53,7 @@ public class BearbeitenActivity extends Activity{
     /**Called when the user clicks the Abbrechen button**/
     public void abbrechenBearbeiten(View view){
      	AlertDialog.Builder adbAbbrechen = new AlertDialog.Builder(BearbeitenActivity.this);
-			adbAbbrechen.setTitle("Ausgabe bearbeiten Abbrechen?");
+			adbAbbrechen.setTitle("Ausgabe bearbeiten abbrechen?");
 			adbAbbrechen.setNegativeButton("Nein",null);
 			adbAbbrechen.setPositiveButton("Ja",new DialogInterface.OnClickListener(){
 				@Override
