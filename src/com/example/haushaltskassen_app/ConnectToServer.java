@@ -65,7 +65,7 @@ public class ConnectToServer extends MyBaseActivity {
 	Log.d("network","network"+network);
 	if(network){
 		
-	String url = new String( " http://fathomless-fjord-2416.herokuapp.com/api/expenses");
+	String url = new String( "http://fathomless-fjord-2416.herokuapp.com/api/expenses.json");
 	
 	 downloadTable(url);
 	 }
@@ -89,7 +89,7 @@ public class ConnectToServer extends MyBaseActivity {
 	     // Prepare a request object
 	     HttpGet httpget = new HttpGet(url); 
 	     Log.d("httpget","bla");
-	     //httpget.setHeader("Authorization","Token token=\"b3f0c4fc17a759b04016f1ce546059d9\"");
+	     httpget.setHeader("Authorization","Token token=\"b3f0c4fc17a759b04016f1ce546059d9\"");
 	   //  Log.d("setheader","bla");
 	     // Execute the request
 	     HttpResponse response;
@@ -190,7 +190,7 @@ public class ConnectToServer extends MyBaseActivity {
 	   			MySQLiteHelper db = new MySQLiteHelper(ConnectToServer.this);
 	   			List<Ausgabe> ausgaben = db.getAllAusgaben();
 	   			if(ausgaben != null && ausgaben.size() > 0){
-	   				try{ makeRequest("http://fathomless-fjord-2416.herokuapp.com/expenses.json", ausgaben); deleteTable();}
+	   				try{ makeRequest("http://fathomless-fjord-2416.herokuapp.com/api/expenses.json", ausgaben); deleteTable();}
 	   				catch(Exception e){Log.e("exection makeReq", "exception make post Request",e);};
 	   			}
 	   			
