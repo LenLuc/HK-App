@@ -24,4 +24,9 @@
     <string name="einkommen_piet">Einkommen Piet</string>
 	  <string name="bearbeiten">Bearbeiten</string>
 	  <string name="datum">TT-MM-JJJJ</string>
+	  <string name="ja">ja</string>
+	  <string name="nein">nein</string>
+	  <string name="gemeinsameAusgabe">gemeinsame Ausgabe</string>
+	   <string name="getätigtVon">getätigt von</string> 
+	   	  
 </resources>

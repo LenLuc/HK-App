@@ -21,6 +21,7 @@ public class Ausgabe {
 	    private int godera;//gemeinsam oder ausgelegt
 	    private String betrag; //ContentValues can't handle BigDecimal. Convert from string for calculations.
 	    private String date;
+	    //private String kommentar;
 	    
 	
 	    

@@ -7,65 +7,89 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".BearbeitenActivity" >
-
-    <CheckBox
-        android:id="@+id/checkBoxPietBearbeiten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/piet" />
-
-    <CheckBox
-        android:id="@+id/checkBoxLuciaBearbeiten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/checkBoxGemeinsamBearbeiten"
-        android:layout_alignLeft="@+id/checkBoxAusgelegtBearbeiten"
-        android:text="@string/lucia" />
-
-    <EditText
+ <EditText
         android:id="@+id/editBetragAusgabeBearbeiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBoxGemeinsamBearbeiten"
-        android:layout_below="@+id/checkBoxGemeinsamBearbeiten"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1Bearbeiten"
+        android:layout_marginTop="91dp"
         android:ems="10"
         android:hint="@string/betrag"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal" >
 
-    <CheckBox
-        android:id="@+id/checkBoxAusgelegtBearbeiten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/buttonFertigBearbeiten"
-        android:layout_below="@+id/checkBoxLuciaBearbeiten"
-        android:layout_marginRight="19dp"
-        android:text="@string/ausgelegt" />
-
-    <CheckBox
-        android:id="@+id/checkBoxGemeinsamBearbeiten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBoxPietBearbeiten"
-        android:layout_below="@+id/checkBoxPietBearbeiten"
-        android:text="@string/gemeinsam" />
+        <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/buttonFertigBearbeiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editBetragAusgabeBearbeiten"
-        android:layout_toRightOf="@+id/editBetragAusgabeBearbeiten"
+        android:layout_alignBottom="@+id/editBetragAusgabeBearbeiten"
+        android:layout_alignParentRight="true"
         android:onClick="saveData"
         android:text="@string/fertig" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGemeinsamBearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1Bearbeiten"
+        android:text="@string/ja" />
+
+    <CheckBox
+        android:id="@+id/checkBoxAusgelegtBearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBoxGemeinsamBearbeiten"
+        android:text="@string/nein" />
+
+    <TextView
+        android:id="@+id/textView2Bearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1Bearbeiten"
+        android:layout_alignBottom="@+id/textView1Bearbeiten"
+        android:layout_alignRight="@+id/buttonFertigBearbeiten"
+        android:layout_marginRight="37dp"
+        android:text="@string/getätigtVon"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <CheckBox
+        android:id="@+id/checkBoxLuciaBearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBoxAusgelegtBearbeiten"
+        android:layout_alignBottom="@+id/checkBoxAusgelegtBearbeiten"
+        android:layout_alignLeft="@+id/checkBoxPietBearbeiten"
+        android:text="@string/lucia" />
+
+    <CheckBox
+        android:id="@+id/checkBoxPietBearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBoxLuciaBearbeiten"
+        android:layout_alignLeft="@+id/textView2Bearbeiten"
+        android:text="@string/piet" />
+
+    <TextView
+        android:id="@+id/textView1Bearbeiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/gemeinsameAusgabe"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
         android:id="@+id/editDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/buttonFertigBearbeiten"
         android:layout_alignLeft="@+id/editBetragAusgabeBearbeiten"
+        android:layout_below="@+id/editBetragAusgabeBearbeiten"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/datum"
         android:inputType="date" />
@@ -76,9 +100,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editDate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="38dp"
         android:onClick="abbrechenBearbeiten"
-        android:text="Abbrechen" />
+        android:text="@string/abbrechen" />
 
 </RelativeLayout>
 
